@@ -28,6 +28,6 @@ RUN git clone --branch $GIT_BRANCH https://github.com/project-gemstone/quarry.gi
 
 WORKDIR /root/quarry
 
-RUN make prep
+RUN chmod +x utils/* && cp utils/* /usr/local/bin
 
 ENTRYPOINT ["/bin/bash", "-c"]

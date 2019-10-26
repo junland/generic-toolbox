@@ -26,10 +26,10 @@ WORKDIR /root/quarry
 
 RUN chmod +x utils/* && cp utils/* /usr/local/bin
 
-COPY rootfs*.tar.gz /root/quarry
+RUN wget https://files.jlab.space/gemstone/$BARCH/rootfs/rootfs-stage1.tar.gz
 
 RUN mkdir -p /root/quarry/rootfs
 
-RUN tar -xf ./rootfs*.tar.gz -C /root/quarry/rootfs
+RUN tar -xf ./rootfs-stage1.tar.gz -C /root/quarry/rootfs
 
 ENTRYPOINT ["/bin/bash", "-c"]

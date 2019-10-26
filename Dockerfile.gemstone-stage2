@@ -1,0 +1,35 @@
+FROM ubuntu:latest
+
+ARG BARCH=x86_64
+
+ARG BBRANCH=master
+
+ENV BUILD_ARCH=$BARCH
+
+ENV GIT_BRANCH=$BBRANCH
+
+ENV PACKAGE_ALL=yes
+
+WORKDIR /root
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN echo "dash dash/sh boolean false" | debconf-set-selections && dpkg-reconfigure dash
+
+RUN apt-get update -y && apt-get dist-upgrade -y
+
+RUN apt-get install qemu-system libarchive-tools bsdtar curl git wget xz-utils vim nano tree -y
+
+RUN git clone --branch $GIT_BRANCH https://github.com/project-gemstone/quarry.git
+
+WORKDIR /root/quarry
+
+RUN chmod +x utils/* && cp utils/* /usr/local/bin
+
+COPY rootfs*.tar.gz /root/quarry
+
+RUN mkdir -p /root/quarry/rootfs
+
+RUN tar -xf ./rootfs*.tar.gz -C /root/quarry/rootfs
+
+ENTRYPOINT ["/bin/bash", "-c"]

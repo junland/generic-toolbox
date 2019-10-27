@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:disco
 
 ARG BARCH=x86_64
 

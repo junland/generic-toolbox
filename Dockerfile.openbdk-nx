@@ -1,4 +1,3 @@
-
 FROM gemstone-base:latest
 
 ARG BARCH=x86_64

@@ -19,6 +19,6 @@ WORKDIR /root/openbdk-nx
 
 RUN make prep
 
-ENV PATH=/root/openbdk-nx/utils:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+RUN cp utils/bootstrap /usr/local/bin
 
 ENTRYPOINT ["/bin/bash", "-c"]

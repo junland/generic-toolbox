@@ -1,0 +1,24 @@
+
+FROM gemstone-base:latest
+
+ARG BARCH=x86_64
+
+ARG BBRANCH=master
+
+ENV BUILD_ARCH=$BARCH
+
+ENV GIT_BRANCH=$BBRANCH
+
+ENV PACKAGE_ALL=yes
+
+WORKDIR /root
+
+RUN git clone --branch $GIT_BRANCH https://github.com/junland/openbdk-nx.git
+
+WORKDIR /root/openbdk-nx
+
+RUN make prep
+
+ENV PATH=/root/openbdk-nx/utils:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
+
+ENTRYPOINT ["/bin/bash", "-c"]

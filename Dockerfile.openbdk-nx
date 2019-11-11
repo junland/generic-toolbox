@@ -18,6 +18,6 @@ WORKDIR /root/openbdk-nx
 
 RUN make prep
 
-RUN cp utils/bootstrap /usr/local/bin
+RUN cp -r utils/* /usr/local/bin
 
 ENTRYPOINT ["/bin/bash", "-c"]

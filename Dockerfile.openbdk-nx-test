@@ -1,0 +1,15 @@
+FROM gemstone-base:latest
+
+WORKDIR /root
+
+RUN wget https://files.jlab.space/openbdk-nx/rootfs-stage1.tar.gz
+
+RUN mkdir -p /root/rootfs
+
+RUN tar -xf ./rootfs-stage1.tar.gz -C /root/rootfs
+
+RUN curl https://gist.githubusercontent.com/junland/9c78bf8e6e44397c1bfb8c5eae455d3b/raw/e9ad3da7bed421b555e88b0fcf60a045d20e9d24/rootfs-test.sh > /usr/local/bin/rootfs-test.sh && chmod +x /usr/local/bin/rootfs-test.sh
+
+RUN curl https://gist.githubusercontent.com/junland/9c78bf8e6e44397c1bfb8c5eae455d3b/raw/e9ad3da7bed421b555e88b0fcf60a045d20e9d24/test.c > /root/rootfs/test.c
+
+ENTRYPOINT ["/bin/bash", "-c"]

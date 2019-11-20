@@ -68,7 +68,7 @@ qemu_system_inject() {
 }
 
 if [ ! -n "$1" ]; then
-  fail "Need to specify the directory for the root filesystem..."
+  fail "Need to specify the directory for the root filesystem... $1"
 fi
 
 if [ ! -d "$1" ]; then

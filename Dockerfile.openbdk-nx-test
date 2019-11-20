@@ -8,7 +8,7 @@ RUN mkdir -p /root/rootfs
 
 RUN tar -xf ./rootfs-stage1.tar.gz -C /root/rootfs
 
-RUN curl https://gist.githubusercontent.com/junland/9c78bf8e6e44397c1bfb8c5eae455d3b/raw/e9ad3da7bed421b555e88b0fcf60a045d20e9d24/rootfs-test.sh > /usr/local/bin/rootfs-test.sh && chmod +x /usr/local/bin/rootfs-test.sh
+RUN curl https://gist.githubusercontent.com/junland/9c78bf8e6e44397c1bfb8c5eae455d3b/raw/abf23be5e07685ebd68b680856c51fbcb1c280fa/rootfs-test.sh > /usr/local/bin/rootfs-test.sh && chmod +x /usr/local/bin/rootfs-test.sh
 
 RUN curl https://gist.githubusercontent.com/junland/9c78bf8e6e44397c1bfb8c5eae455d3b/raw/e9ad3da7bed421b555e88b0fcf60a045d20e9d24/test.c > /root/rootfs/test.c
 

@@ -79,9 +79,8 @@ if [ ! -n "$2" ]; then
   fail "Need to specify the architecture for the root filesystem..."
 fi
 
-export REPO=$1
-export ROOTFS=$2
-export ROOTFS_ARCH=$3
+export ROOTFS=$1
+export ROOTFS_ARCH=$2
 export HOST_ARCH=$(uname -m)
 
 case $ROOTFS_ARCH in

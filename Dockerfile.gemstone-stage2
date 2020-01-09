@@ -14,6 +14,8 @@ WORKDIR /root
 
 RUN git clone --branch $GIT_BRANCH https://github.com/project-gemstone/quarry.git
 
+RUN git clone https://github.com/project-gemstone/scratchpkg.git && cd scratchpkg && make install
+
 WORKDIR /root/quarry
 
 RUN chmod +x utils/* && cp utils/* /usr/local/bin
